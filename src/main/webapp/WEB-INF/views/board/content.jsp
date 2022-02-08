@@ -4,28 +4,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 <title>글 상세</title>
 </head>
 <body>
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
 <table>
-	<tr><td>번호</td><td>${dto.postid}</td>
-	<tr><td>제목</td><td>${dto.title}</td>
-	<tr><td>작성자</td><td>${dto.userid}</td>
-	<tr><td>내용</td><td>${dto.postcon}</td>
-	<tr><td>등록일</td><td><fmt:formatDate value="${dto.postdate }" dateStyle="long"/></td>
-	<tr><td>조회수</td><td>${dto.readcount}</td>
-	<tr><td colspan="2" align="right">
+	<tr>
+		<td>번호</td><td>${dto.postid}</td>
+		<td>작성자</td><td>${dto.userid}</td>
+		<td>등록일</td><td><fmt:formatDate value="${dto.postdate }" dateStyle="long"/></td>
+		<td>조회수</td><td>${dto.readcount}</td>
+	</tr>
+	<tr><td id="title">제목</td><td>${dto.title}</td></tr>
+	<tr><td>내용</td><td>${dto.postcon}</td></tr>
 	
-	<c:if test="${ user.id == dto.userid }">
-	<a href="/board/update/${dto.postid}">글 수정 </a> 
-	<a id="${dto.postid}" href="#">글 삭제</a>
-	</c:if>
-	<a href="../list">목록 이동</a> 
-	</td></tr>
+	<tr>
+		<td colspan="2" align="right">
+	
+		<c:if test="${ user.id == dto.userid }">
+			<a href="/board/update/${dto.postid}">글 수정 </a> 
+			<a id="${dto.postid}" href="/board/delete/${dto.postid}">글 삭제</a>
+		</c:if>
+		<a href="/list">목록 이동</a> 
+		</td>
+	</tr>
+	
 </table>
 
+
 <div>
-	<c:forEach items="${cList}" var="reply">
+	<c:forEach items="${rList}" var="reply">
 		<div>${reply.replyid} / <fmt:formatDate value="${reply.replydate }" dateStyle="short"/></div>
 		<div>${reply.repcon} 
 		<c:if test="${reply.userid == user.id }">
@@ -36,6 +53,8 @@
 	</c:forEach>
 	<input name="content" id="content"><button id="add">등록</button>
 </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
