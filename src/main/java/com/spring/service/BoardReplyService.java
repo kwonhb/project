@@ -29,5 +29,18 @@ public class BoardReplyService {
 	public int boardwrite(BoardDto dto) {
 		return dao.boardwrite(dto);
 	}
+	
+	public int boardupdate(BoardDto dto) {
+		return dao.boardupdate(dto);
+	}
+	
+	public int boarddelete(int postid) {
+		return dao.boarddelete(postid);
+	}
+	
+	public BoardDto postnodto(int postno) {
+	      return dao.postnodto(postno);
+	   }
+
 }
 

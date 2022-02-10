@@ -24,14 +24,14 @@ public class BoardReplyController {
 	@ResponseBody
 	public String insertReply(BoardReplyDto dto){
 		int i = service.insertReply(dto);
-		return i+"";
+		return "redirect:/board/list";
 	}
 	
 	@GetMapping("/reply/delete/{replyid}")
 	@ResponseBody
 	public String deleteReply(int replyid) {
 		int i = service.deleteReply(replyid);
-		return i+"";
+		return "redirect:/board/list";
 	}
 	
 	
@@ -52,15 +52,30 @@ public class BoardReplyController {
 		service.boardwrite(dto);
 		return "redirect:/board/list";
 	}
+
 	
 	
 	@GetMapping("board/content/{postno}")
-	public String boardcontent(@PathVariable int postno, Model m) {
-		
-		
-		List<BoardReplyDto> rlist = service.selectReply(postno);
-		m.addAttribute("rlist",rlist);
-		return "board/content";
+	   public String boardcontent(@PathVariable int postno, BoardDto dto, Model m) {
+	      
+	      List<BoardReplyDto> rlist = service.selectReply(postno);
+	      dto = service.postnodto(postno);
+	      m.addAttribute("rlist",rlist);
+	      m.addAttribute("dto", dto);
+	      return "board/content";
+	   }
+
+	
+	@PostMapping("/board/update")
+	public String boardupdate(BoardDto dto) {
+		service.boardupdate(dto);
+		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/board/delete")
+	public String boarddelete(int postid) {
+		service.boarddelete(postid);
+		return "redirect:/board/list";
 	}
 	
 }
