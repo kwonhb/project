@@ -93,7 +93,7 @@
 			<button id="add">댓글달기</button>
 		</div>
 
-	</div>
+	</div> 
 	
 	<!-- 스크립트 -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
