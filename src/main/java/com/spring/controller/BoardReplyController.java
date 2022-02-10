@@ -44,11 +44,13 @@ public class BoardReplyController {
 	}
 	
 	
+
 	@PostMapping("board/boardwrite")
 	public String boardwrite(BoardDto dto) {
 		service.boardwrite(dto);
 		return "redirect:/board/list";
 	}
+
 	
 	@GetMapping("board/content/{postno}")
 	   public String boardcontent(@PathVariable int postno, BoardDto dto, Model m) {

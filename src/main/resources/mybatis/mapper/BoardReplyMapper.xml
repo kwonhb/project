@@ -8,8 +8,8 @@
 insert into reply values(reply_seq.nextval, #{postid}, #{repcon}, sysdate, #{userid}) </insert>
 
 <insert id="boardwrite" parameterType="com.spring.dto.BoardReplyDto">
-insert into board(no, userid, title, postcon, pictureid, postdate) values(board_seq.nextval, #{userid},
-#{title}, #{postcon}, #{pictureid}, sysdate)
+insert into board(postid, userid, title, postcon, pictureid, postdate) values(board_seq.nextval, #{userid},
+#{title}, #{postcon}, #{pictureid}, sysdate, #{head})
 </insert>
 
 <update id="boardupdate" parameterType="com.spring.dto.BoardReplyDto">
