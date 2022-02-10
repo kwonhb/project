@@ -44,18 +44,26 @@ public class BoardReplyController {
 	}
 	
 	
-	@PostMapping("/boardwrite")
+	@PostMapping("board/boardwrite")
 	public String boardwrite(BoardDto dto) {
 		service.boardwrite(dto);
-		return "board/list";
+		return "redirect:/board/list";
 	}
 	
 	@GetMapping("board/content/{postno}")
-	public String boardcontent(@PathVariable int postno, Model m) {
-		
-		
-		List<BoardReplyDto> rlist = service.selectReply(postno);
-		m.addAttribute("rlist",rlist);
-		return "board/content";
+	   public String boardcontent(@PathVariable int postno, BoardDto dto, Model m) {
+	      
+	      List<BoardReplyDto> rlist = service.selectReply(postno);
+	      dto = service.postnodto(postno);
+	      m.addAttribute("rlist",rlist);
+	      m.addAttribute("dto", dto);
+	      return "board/content";
+	   }
+
+	
+	@PostMapping("/board/update")
+	public String boardupdate(BoardDto dto) {
+		service.boardupdate(dto);
+		return "redirect:/board/list";
 	}
 }

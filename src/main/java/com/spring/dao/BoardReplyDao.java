@@ -14,4 +14,7 @@ public interface BoardReplyDao {
 	int deleteReply(int replyid);
 	
 	int boardwrite(BoardDto dto);
+	int boardupdate(BoardDto dto);
+	BoardDto postnodto(int postid);
+
 }

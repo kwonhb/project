@@ -115,7 +115,7 @@
 					function() {
 						let userid = '${user.id}';
 						let repcon = $("#content").val();
-						let replyid = ${dto.replyid};
+						/* let replyid = ${dto.replyid}; */
 
 						$.ajax(
 								{
@@ -139,6 +139,8 @@
 				});
 
 			})//click
+			
+
 
 		})//ready
 	</script>

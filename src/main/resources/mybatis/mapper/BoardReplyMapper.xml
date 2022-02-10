@@ -12,10 +12,20 @@ insert into board(no, userid, title, postcon, pictureid, postdate) values(board_
 #{title}, #{postcon}, #{pictureid}, sysdate)
 </insert>
 
+<update id="boardupdate" parameterType="com.spring.dto.BoardReplyDto">
+	update board set title=#{title}, postcon=#{postcon}, pictureid=#{pictureid}
+	where postno=#{postno}
+</update>
+
 <delete id="deleteReply" parameterType="int">delete from reply where replyid = #{replyid} </delete>
 
 <select id="selectReply" parameterType="int" resultType="com.spring.dto.BoardReplyDto">
 select * from reply where postid = #{postid} order by regdate desc 
 </select>
+
+<select id="postnodto" parameterType="int" resultType="com.spring.dto.BoardDto">
+select * from board where postid = #{postid}
+</select>
+
 
 </mapper>
