@@ -22,7 +22,7 @@
 		crossorigin="anonymous"></script>
 	<div class="container" style="margin-top:30px">
 
-		<form action="boardinsert" method="post">
+		<form action="./boardwrite" method="post">
 			<h3>글 쓰기</h3>
 			<br>
 
@@ -51,7 +51,7 @@
 
 			<div class="mb-3">
 				<label for="con" class="form-label"></label>
-				<textarea class="form-control" id="postcon" rows="20"
+				<textarea class="form-control" name="postcon" id="postcon" rows="20"
 					placeholder="내용 입력"></textarea>
 			</div>
 
@@ -62,7 +62,7 @@
 					class="form-control" id="pictureid" placeholder="사진 코드 입력">
 			</div>
 
-
+			
 			<button type="submit" class="btn btn-outline-dark">저장</button>
 		</form>
 

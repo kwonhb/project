@@ -23,14 +23,14 @@ public class BoardReplyController {
 	@ResponseBody
 	public String insertReply(BoardReplyDto dto){
 		int i = service.insertReply(dto);
-		return i+"";
+		return "redirect:/board/list";
 	}
 	
 	@GetMapping("/reply/delete/{replyid}")
 	@ResponseBody
 	public String deleteReply(int replyid) {
 		int i = service.deleteReply(replyid);
-		return i+"";
+		return "redirect:/board/list";
 	}
 	
 	@GetMapping("/board/write")
@@ -66,6 +66,12 @@ public class BoardReplyController {
 	@PostMapping("/board/update")
 	public String boardupdate(BoardDto dto) {
 		service.boardupdate(dto);
+		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/board/delete")
+	public String boarddelete(int postid) {
+		service.boarddelete(postid);
 		return "redirect:/board/list";
 	}
 }

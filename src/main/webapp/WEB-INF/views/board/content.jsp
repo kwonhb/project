@@ -65,15 +65,18 @@
 		<hr>
 		
 		<!-- 수정, 삭제, 목록으로 이동 -->
-		<table>
-			<tr>
-				<td colspan="2" align="right"><c:if
-						test="${ user.id == dto.userid }">
-						<a href="./update/${dto.postid}">글 수정 </a>
-						<a id="${dto.postid}" href="./delete/${dto.postid}">글 삭제</a>
-					</c:if> <a href="./list">목록 이동</a></td>
-			</tr>
-		</table>
+
+		<div class="mb-3" style="float: right;">
+			<c:if test="${ user.id == dto.userid }">
+				<a href="./update/${dto.postid}"> 
+				
+				<button type="button" class="btn btn-outline-secondary btn-sm">글 수정</button></a>
+				<a id="${dto.postid}" href="./delete">
+				<button type="button" class="btn btn-outline-secondary btn-sm">글 삭제</button></a>
+			</c:if> <a href="./list">
+				<button type="button" class="btn btn-outline-secondary btn-sm">목록으로</button></a>
+		</div>
+
 
 		<!-- 댓글 -->
 		<div>
@@ -89,8 +92,11 @@
 				</div>
 				<hr>
 			</c:forEach>
-			<input name="content" id="content">
-			<button id="add">댓글달기</button>
+			<input class="form-control form-control-sm mb-1" type="text"
+			name="content" id="content" aria-label=".form-control-sm example">
+			<div style="float: right;">
+			<button type="button" id="add" class="btn btn-outline-secondary btn-sm">댓글달기</button>
+			</div>
 		</div>
 
 	</div> 
