@@ -75,9 +75,30 @@
 				<button type="button" class="btn btn-outline-secondary btn-sm">글 삭제</button></a>
 			</c:if> <a href="./list">
 				<button type="button" class="btn btn-outline-secondary btn-sm">목록으로</button></a>
+
 		</div>
 
+	</div>
+	
+	<!-- 스크립트 -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(function() {
+			$("a[id]").click(function() {
+				let no = $(this).attr("id");
+				$.ajax({
+					url : "/board/delete",
+					data : "no=" + no,
+					method : "delete"
+				}).done(function() {
+					location.href = "/board/list";
+				})
+				return false;
+			})//click
 
+
+
+=======
 		<!-- 댓글 -->
 		<div>
 			<c:forEach items="${rList}" var="reply">
@@ -144,6 +165,8 @@
 					location.reload();
 				});
 
+
+
 			})//click
 			
 
@@ -151,5 +174,9 @@
 		})//ready
 	</script>
 
+
+		})//ready
+	</script>
+	
 </body>
 </html>

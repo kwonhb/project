@@ -9,14 +9,14 @@ import com.spring.dto.BoardReplyDto;
 
 @Mapper
 public interface BoardReplyDao {
+	//게시판 crud
+	BoardDto postnodto(int postid);
+	int boardwrite(BoardDto dto);
+	int boardupdate(BoardDto dto);
+	int boarddelete(int postid);
+	//댓글 crud
 	List<BoardReplyDto> selectReply(int postid);
 	int insertReply(BoardReplyDto dto);
 	int deleteReply(int replyid);
 	
-	int boardwrite(BoardDto dto);
-	int boardupdate(BoardDto dto);
-	BoardDto postnodto(int postid);
-	int boarddelete(int postid);
-
-
 }

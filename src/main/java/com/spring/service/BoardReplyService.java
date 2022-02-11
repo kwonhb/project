@@ -14,16 +14,8 @@ public class BoardReplyService {
 	@Autowired
 	BoardReplyDao dao;
 	
-	public List<BoardReplyDto> selectReply(int postid){
-		return dao.selectReply(postid);
-	}
-	
-	public int insertReply(BoardReplyDto dto){
-		return dao.insertReply(dto);
-	}
-	
-	public int deleteReply(int replyid) {
-		return dao.deleteReply(replyid);
+	public BoardDto postnodto(int postno) {
+		return dao.postnodto(postno);
 	}
 	
 	public int boardwrite(BoardDto dto) {
@@ -38,9 +30,17 @@ public class BoardReplyService {
 		return dao.boarddelete(postid);
 	}
 	
-	public BoardDto postnodto(int postno) {
-	      return dao.postnodto(postno);
-	   }
-
+	public List<BoardReplyDto> selectReply(int postid){
+		return dao.selectReply(postid);
+	}
+	
+	public int insertReply(BoardReplyDto dto){
+		return dao.insertReply(dto);
+	}
+	
+	public int deleteReply(int replyid) {
+		return dao.deleteReply(replyid);
+	}
+	
 }
 

@@ -19,52 +19,31 @@ public class BoardReplyController {
 	@Autowired
 	BoardReplyService service;
 	
-	
-	@GetMapping("/reply/insert")
-	@ResponseBody
-	public String insertReply(BoardReplyDto dto){
-		int i = service.insertReply(dto);
-		return "redirect:/board/list";
-	}
-	
-	@GetMapping("/reply/delete/{replyid}")
-	@ResponseBody
-	public String deleteReply(int replyid) {
-		int i = service.deleteReply(replyid);
-		return "redirect:/board/list";
-	}
-	
-	
 	@GetMapping("/board/write")
 	public String boardwrite() {
 		return "board/write";
 	}
-	
-	
-	@GetMapping("/board/content")
-	public String content() {
-		return "board/content";
-	}
-	
 	
 	@PostMapping("/board/boardwrite")
 	public String boardwrite(BoardDto dto) {
 		service.boardwrite(dto);
 		return "redirect:/board/list";
 	}
-
 	
+	@GetMapping("/board/content")
+	public String content() {
+		return "board/content";
+	}
 	
 	@GetMapping("board/content/{postno}")
-	   public String boardcontent(@PathVariable int postno, BoardDto dto, Model m) {
-	      
-	      List<BoardReplyDto> rlist = service.selectReply(postno);
-	      dto = service.postnodto(postno);
-	      m.addAttribute("rlist",rlist);
-	      m.addAttribute("dto", dto);
-	      return "board/content";
-	   }
-
+	public String boardcontent(@PathVariable int postno, BoardDto dto, Model m) {
+		
+		List<BoardReplyDto> rlist = service.selectReply(postno);
+		dto = service.postnodto(postno);
+		m.addAttribute("rlist",rlist);
+		m.addAttribute("dto", dto);
+		return "board/content";
+	}
 	
 	@PostMapping("/board/update")
 	public String boardupdate(BoardDto dto) {
@@ -76,6 +55,20 @@ public class BoardReplyController {
 	public String boarddelete(int postid) {
 		service.boarddelete(postid);
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/reply/insert")
+	@ResponseBody
+	public String insertReply(BoardReplyDto dto){
+		int i = service.insertReply(dto);
+		return i+"";
+	}
+	
+	@GetMapping("/reply/delete/{replyid}")
+	@ResponseBody
+	public String deleteReply(int replyid) {
+		int i = service.deleteReply(replyid);
+		return i+"";
 	}
 	
 }
