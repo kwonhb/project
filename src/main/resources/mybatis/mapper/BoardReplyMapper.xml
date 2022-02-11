@@ -32,8 +32,4 @@
 	delete from board where postid = #{postid}
 </delete>
 
-<delete id="deleteReply" parameterType="int">
-	delete from reply where replyid = #{replyid}
-</delete>
-
 </mapper>
