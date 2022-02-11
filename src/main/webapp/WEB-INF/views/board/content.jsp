@@ -98,7 +98,6 @@
 
 
 
-=======
 		<!-- 댓글 -->
 		<div>
 			<c:forEach items="${rList}" var="reply">
@@ -175,8 +174,5 @@
 	</script>
 
 
-		})//ready
-	</script>
-	
 </body>
 </html>

@@ -15,4 +15,5 @@ public class BoardDto {
 	private String readcount;
 	private int rec;
 	private String head;
+	private String replyid;
 }
