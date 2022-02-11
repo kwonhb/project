@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.dto.BoardDto;
@@ -35,9 +36,9 @@ public class BoardReplyController {
 		return "board/content";
 	}
 	
-	@GetMapping("board/content/{postno}")
+	@RequestMapping("board/content/{postno}")
 	public String boardcontent(@PathVariable int postno, BoardDto dto, Model m) {
-		
+		service.readcount(postno);
 		List<BoardReplyDto> rlist = service.selectReply(postno);
 		dto = service.postnodto(postno);
 		m.addAttribute("rlist",rlist);

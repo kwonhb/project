@@ -41,6 +41,9 @@
 				<td><fmt:formatDate value="${dto.postdate }" dateStyle="long" /></td>
 				<td>조회수</td>
 				<td>${dto.readcount}</td>
+				<td>추천수</td>
+				<td>${dto.rec}</td>
+				
 			</tr>
 		</table>
 		<hr>
@@ -73,7 +76,7 @@
 				<button type="button" class="btn btn-outline-secondary btn-sm">글 수정</button></a>
 				<a id="${dto.postid}" href="./delete">
 				<button type="button" class="btn btn-outline-secondary btn-sm">글 삭제</button></a>
-			</c:if> <a href="./list">
+			</c:if> <a href="../list">
 				<button type="button" class="btn btn-outline-secondary btn-sm">목록으로</button></a>
 
 		</div>

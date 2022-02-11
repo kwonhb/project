@@ -17,6 +17,7 @@ public interface BoardReplyDao {
 	//댓글 crud
 	List<BoardReplyDto> selectReply(int postid);
 	int insertReply(BoardReplyDto dto);
+	int readcount(int postno); 
 	int deleteReply(int replyid);
 	
 }

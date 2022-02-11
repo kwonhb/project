@@ -38,6 +38,10 @@ public class BoardReplyService {
 		return dao.insertReply(dto);
 	}
 	
+	public int readcount(int postno) {
+		return dao.readcount(postno);
+	}
+	
 	public int deleteReply(int replyid) {
 		return dao.deleteReply(replyid);
 	}

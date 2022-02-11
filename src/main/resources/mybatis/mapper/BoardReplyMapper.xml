@@ -8,7 +8,7 @@
 </insert>
 
 <insert id="boardwrite" parameterType="com.spring.dto.BoardReplyDto">
-	insert into board (postid, userid, title, postcon, pictureid, postdate, head) values(board_seq.nextval, #{userid}, #{title}, #{postcon}, #{pictureid}, sysdate, #{head})
+	insert into board (postid, userid, title, postcon, pictureid, postdate, readcount, head) values(board_seq.nextval, #{userid}, #{title}, #{postcon}, #{pictureid}, sysdate, 0, #{head})
 </insert>
 
 <delete id="deleteReply" parameterType="int">
@@ -25,7 +25,11 @@
 
 <update id="boardupdate" parameterType="com.spring.dto.BoardReplyDto">
 	update board set title=#{title}, postcon=#{postcon}, pictureid=#{pictureid}
-	where postno=#{postno}
+	where postid=#{postid}
+</update>
+
+<update id="readcount" parameterType="int">
+	update board readcount set readcount = (readcount+1) where postid = #{postno}
 </update>
 
 <delete id="boarddelete" parameterType="int">
