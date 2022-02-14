@@ -39,17 +39,20 @@ public class BoardReplyController {
 	@RequestMapping("board/content/{postno}")
 	public String boardcontent(@PathVariable int postno, BoardDto dto, Model m) {
 		service.readcount(postno);
-		List<BoardReplyDto> rlist = service.selectReply(postno);
+
+		List<BoardReplyDto> rdto = service.selectReply(postno);
+		
 		dto = service.postnodto(postno);
-		m.addAttribute("rlist",rlist);
+
+		m.addAttribute("rdto",rdto);
 		m.addAttribute("dto", dto);
 		return "board/content";
 	}
 	
-	@PostMapping("/board/update")
-	public String boardupdate(BoardDto dto) {
+	@RequestMapping("/board/update/{postno}")
+	public String boardupdate(@PathVariable int postno, BoardDto dto) {
 		service.boardupdate(dto);
-		return "redirect:/board/list";
+		return "/board/update";
 	}
 	
 	@GetMapping("/board/delete")
@@ -67,7 +70,7 @@ public class BoardReplyController {
 	
 	@GetMapping("/reply/delete/{replyid}")
 	@ResponseBody
-	public String deleteReply(int replyid) {
+	public String deleteReply(@PathVariable int replyid) {
 		int i = service.deleteReply(replyid);
 		return i+"";
 	}
