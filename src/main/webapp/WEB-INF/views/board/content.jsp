@@ -79,7 +79,7 @@
 		<div class="mb-3" style="float: right;">
 			<%-- <c:if test="${ user.id == dto.userid }"> --%>
 				<a href="../update/${dto.postid}" class="btn btn-outline-secondary btn-sm" role="button">글 수정</a>
-				<a id="${dto.postid}" href="./delete" class="btn btn-outline-secondary btn-sm" role="button">글 삭제</a>
+				<a id="${dto.postid}" href="#" class="btn btn-outline-secondary btn-sm" role="button">글 삭제</a>
 			<%-- </c:if>  --%>
 				<a href="../list" class="btn btn-outline-secondary btn-sm" role="button">목록으로</a>
 
@@ -118,24 +118,24 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(function(){
-			/*  $("a[id]").click(function() {
+			
+			  $("a[id]").click(function() {
 				let no = $(this).attr("id");
 				$.ajax({
 					url : "/board/delete",
-					data : "no=" + no,
+					data : "postno=" + no,
 					method : "delete"
 				}).done(function() {
 					location.href = "/board/list";
 				});
 				return false;
-			})//click  */
-
+			})//click  
+			
 			$("#add").click(
 					function() {
 						let userid = $("#userid").val();
 						let postid = $("#postid").val();
 						let repcon = $("#repcon").val();
-
 						$.ajax({	url : "/reply/insert",
 									data : "userid=" + userid + "&repcon=" + repcon +"&postid=" + postid,
 									
@@ -143,7 +143,6 @@
 								}).done(function() {
 							location.reload();
 						});
-
 			})//click
 					
 			 $(".dereply").click(function() {

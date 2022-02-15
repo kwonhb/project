@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,15 +51,17 @@ public class BoardReplyController {
 	}
 	
 	@RequestMapping("/board/update/{postno}")
-	public String boardupdate(@PathVariable int postno, BoardDto dto) {
+	public String boardupdate(@PathVariable int postno, BoardDto dto, Model m) {
+		dto = service.postnodto(postno);
+		m.addAttribute("dto", dto);
 		service.boardupdate(dto);
 		return "/board/update";
 	}
 	
 	@GetMapping("/board/delete")
 	public String boarddelete(int postid) {
-		service.boarddelete(postid);
-		return "redirect:/board/list";
+		int i = service.boarddelete(postid);
+		return i+"";
 	}
 	
 	@GetMapping("/reply/insert")

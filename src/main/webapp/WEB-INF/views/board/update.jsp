@@ -55,7 +55,7 @@
 		
 		<div class="c_content">
 			<form action="boardwrite" method="post" name="writeform">
-				<textarea id="postcon" name="postcon"></textarea>
+				<textarea id="postcon" name="postcon">${dto.postcon }</textarea>
 				<input type="hidden" id="head" name="head" value="일반">
 				<input type="hidden" id="userid" name="userid" value="dulgi">
 				<input type="hidden" id="title" name="title">

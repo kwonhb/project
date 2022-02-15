@@ -11,9 +11,7 @@
 	insert into board (postid, userid, title, postcon, pictureid, postdate, readcount, head) values(board_seq.nextval, #{userid}, #{title}, #{postcon}, #{pictureid}, sysdate, 0, #{head})
 </insert>
 
-<delete id="deleteReply" parameterType="int">
-	delete from reply where replyid = #{replyid} 
-</delete>
+
 
 <select id="selectReply" parameterType="int" resultType="com.spring.dto.BoardReplyDto">
 	select * from reply where postid = #{postid} order by replydate desc 
@@ -31,6 +29,10 @@
 <update id="readcount" parameterType="int">
 	update board readcount set readcount = (readcount+1) where postid = #{postno}
 </update>
+
+<delete id="deleteReply" parameterType="int">
+	delete from reply where replyid = #{replyid} 
+</delete>
 
 <delete id="boarddelete" parameterType="int">
 	delete from board where postid = #{postid}

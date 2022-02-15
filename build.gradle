@@ -35,9 +35,8 @@ dependencies {
 	implementation 'com.google.code.gson:gson:2.8.9'
     //EMAIL
     implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.1'
-	//À¯È¿¼º°Ë»ç
+	//ï¿½ï¿½È¿ï¿½ï¿½ï¿½Ë»ï¿½
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.6.1'
-	
 }
 
 test {
