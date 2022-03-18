@@ -48,7 +48,7 @@ $(function(){
            }
         }
 
-   if(newHeight >= 48 || newWidth >= 48) {
+/*   if(newHeight >= 48 || newWidth >= 48) {
          $(".canvas td").css("height", "5px");
          $(".canvas td").css("min-width", "5px");
       } else if(newHeight >= 24 || newWidth >= 24) {
@@ -57,7 +57,7 @@ $(function(){
       } else {
          $(".canvas td").css("height", "20px");
          $(".canvas td").css("min-width", "20px");
-      }
+      }*/
                      
    }); //getJSON
 	}//if
