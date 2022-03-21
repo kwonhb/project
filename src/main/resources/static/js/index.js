@@ -10,13 +10,12 @@ $(function(){
 	if(flea!=""){
 		$(".boardf"+a).css("display","block");
 		var img = document.createElement("img");
-		
 		img.setAttribute("src", fpic);
 		img.setAttribute("onerror", "this.src='/image/noimage.png'");
 		img.setAttribute("width","300px");
 		img.setAttribute("height","auto");
 		
-		fpicadd.appendChild(img);
+		fpicadd.insertBefore(img, fpicadd.firstChild);
 	}
 	
 	if(pictureid!=""){

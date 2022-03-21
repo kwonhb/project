@@ -74,6 +74,11 @@ public class IndexCtrl {
 		return "index";
 	}
 	
+	@GetMapping("/minicard")
+	public String minicard() {
+		return "minicard";
+	}
+	
 	
 //	
 //	BoardDto bb1 = bbdto.get(0);
