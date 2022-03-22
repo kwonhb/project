@@ -18,6 +18,9 @@
 <!-- 컨테이너 -->
 <div class="container">
 
+
+
+
 	<!-- 움직이는 텍스트 -->
 <div class="marquee">
   <div class="marquee__inner" aria-hidden="true">
@@ -131,10 +134,12 @@
 		
 	</div>
 	
-</div>
 
+</div>
 <!-- footer -->
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>	
+
+
 
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="/js/index.js"></script>

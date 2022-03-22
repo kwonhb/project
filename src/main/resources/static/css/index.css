@@ -4,7 +4,7 @@
 
 .container{
 	width: 1320px;
-	margin: 0 auto;
+	margin: auto;
 	position: relative;
 }
 .marquee{
@@ -79,7 +79,9 @@ ul, li{
 	display: list-item;
     text-align: -webkit-match-parent;
 }
-
+table{
+	border-spacing: 0;
+}
 .main1, .main2, .main3{
 	overflow: hidden;
     position: relative;

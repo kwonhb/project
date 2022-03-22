@@ -29,7 +29,7 @@
 			<a href="/logout">로그아웃</a>
 		</li>
 		<li class="logon">
-			<a href="#">마이페이지</a>
+			<a href="/Mypage">마이페이지</a>
 		</li>
 		<li>
 			<a href="#">관리자메뉴</a>
