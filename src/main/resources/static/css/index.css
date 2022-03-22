@@ -111,11 +111,14 @@ table{
 	color: gray;
 	font-size: large;
 }
+p{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 .bbest-text, .card-text{
 	color: gray;
 	width: 250px;
 	height: 2;
-	text-overflow: ellipsis;
 }
 .main2_1 li, .main3_1 li{
 	height: 420px;
