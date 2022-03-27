@@ -1,7 +1,6 @@
 package com.spring.controller;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -38,13 +36,14 @@ public class Admin {
 
 		List<BoardDto> bbdto = service.boardbest(toDay, beforeMonth);
 		List<FleaDto> ffdto = service.fleabest();
-		System.out.println(bbdto);
+
 		if(bbdto.size() == 0) {
 			m.addAttribute("bbdto", "none");
 		} else {
 			m.addAttribute("bbdto", bbdto);
 		}
-		
+		System.out.println(ffdto.size());		
+		System.out.println(ffdto);
 		if(ffdto.size() == 0) {
 			System.out.println("null");
 			m.addAttribute("ffdto", "none");

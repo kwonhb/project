@@ -266,10 +266,11 @@ public class FleaController {
 
 		return s;
 	}
-
-	@GetMapping("game/minigame")
-	public String game() {
-		return "game/minigame";
+	
+	@GetMapping("/flea/match2")
+	@ResponseBody
+	public String match2(String imgid) {
+		return service.match2(imgid);
 	}
 
 }
